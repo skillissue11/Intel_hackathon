@@ -68,3 +68,10 @@ This project integrates Intel's Extension for Scikit-learn, which significantly 
 In this implementation, Intel's optimizations improve the training speed and overall computational efficiency. The patching process works behind the scenes to accelerate scikit-learn's algorithms, especially beneficial for large-scale datasets like the IBM HR Analytics Employee Attrition Dataset. As seen in the code above, the model is trained using RandomForestClassifier, which now runs faster with Intel’s optimizations, allowing for quicker model iteration and validation.
 ![WhatsApp Image 2024-10-05 at 09 40 00_29618fdb](https://github.com/user-attachments/assets/1eae271a-1fd1-472e-ba61-23a1357a9b3f)
 
+
+## Intel Optimizations with Transformers (T5 Model)
+In this project, we leverage Intel's oneAPI and scikit-learn optimizations to enhance the performance of the T5 transformer model used for conditional generation tasks. By applying Intel’s patch_sklearn() function, the scikit-learn algorithms behind the scenes are optimized to run efficiently on Intel hardware. While the primary task involves the T5Tokenizer and T5ForConditionalGeneration from Hugging Face's Transformers library, Intel’s optimizations ensure smoother handling of data processing and training tasks within the overall pipeline.
+
+Using the Intel® Extension for Scikit-learn, we speed up computations where applicable, especially when working with large datasets, without needing to modify the code for the transformer itself. The integration with oneAPI provides a seamless acceleration of the machine learning workflow, making the model more suitable for resource-intensive environments.
+
+By utilizing these optimizations, we achieve enhanced performance without changing the core functionality of the T5 transformer.
