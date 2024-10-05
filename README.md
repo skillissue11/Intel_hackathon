@@ -66,3 +66,5 @@ The graph illustrates the relationship between training loss and validation loss
 This project integrates Intel's Extension for Scikit-learn, which significantly accelerates machine learning tasks by optimizing underlying algorithms. By incorporating the sklearnex library and using the patch_sklearn() function, we leverage Intel's advanced CPU optimizations without changing any of the core logic or APIs in scikit-learn.
 
 In this implementation, Intel's optimizations improve the training speed and overall computational efficiency. The patching process works behind the scenes to accelerate scikit-learn's algorithms, especially beneficial for large-scale datasets like the IBM HR Analytics Employee Attrition Dataset. As seen in the code above, the model is trained using RandomForestClassifier, which now runs faster with Intel’s optimizations, allowing for quicker model iteration and validation.
+![WhatsApp Image 2024-10-05 at 09 40 00_29618fdb](https://github.com/user-attachments/assets/1eae271a-1fd1-472e-ba61-23a1357a9b3f)
+
