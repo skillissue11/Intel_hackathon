@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Retention and Attrition Prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .form-section {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #predictionResult {
+            display: none;
+            margin-top: 20px;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Employee Retention and Attrition Prediction</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="form-section">
+            <h2>Employee Information</h2>
+            <form id="employeeForm">
+                <label for="employeeID">Employee ID</label>
+                <input type="text" id="employeeID" name="employeeID" required>
+
+                <label for="employeeAge">Age</label>
+                <input type="number" id="employeeAge" name="employeeAge" required>
+
+                <label for="jobRole">Job Role</label>
+                <select id="jobRole" name="jobRole" required>
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Data Scientist">Data Scientist</option>
+                    <option value="HR Manager">HR Manager</option>
+                    <option value="Project manager">Project manager</option>
+                    <option value="Branch manager">Branch manager</option>
+                    <option value="Auditor">Auditor</option>
+                    <option value="Clerk">Clerk</option>
+                    <option value="Marketing manager">Marketing manager</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to tell">Prefer not to tell</option>
+                </select>
+
+                <label for="maritalStatus">Marital Status</label>
+                <select id="maritalStatus" name="maritalStatus" required>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                </select>
+
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    <option value="IT">IT</option>
+                    <option value="HR">HR</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Finance">Finance</option>
+                    <option value="R&D">R&D</option>
+                    <option value="Customer Service">Customer Service</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="yearsAtCompany">Years at Company</label>
+                <input type="number" id="yearsAtCompany" name="yearsAtCompany" required>
+
+                <label for="yearsWithCurrManager">Years with Current Manager</label>
+                <input type="number" id="yearsWithCurrManager" name="yearsWithCurrManager" required>
+
+                <label for="yearsSinceLastPromotion">Years Since Last Promotion</label>
+                <input type="number" id="yearsSinceLastPromotion" name="yearsSinceLastPromotion" required>
+
+                <label for="yearsInCurrentRole">Years in Current Role</label>
+                <input type="number" id="yearsInCurrentRole" name="yearsInCurrentRole" required>
+
+                <label for="workLifeBalance">Work-Life Balance</label>
+                <select id="workLifeBalance" name="workLifeBalance" required>
+                    <option value="1">1 - Bad</option>
+                    <option value="2">2 - Poor</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Excellent</option>
+                </select>
+
+                <label for="trainingTimesLastYear">Training Times Last Year</label>
+                <input type="number" id="trainingTimesLastYear" name="trainingTimesLastYear" required>
+
+                <label for="jobSatisfaction">Job Satisfaction</label>
+                <select id="jobSatisfaction" name="jobSatisfaction" required>
+                    <option value="1">1 - Very Dissatisfied</option>
+                    <option value="2">2 - Dissatisfied</option>
+                    <option value="3">3 - Satisfied</option>
+                    <option value="4">4 - Very Satisfied</option>
+                </select>
+
+                <label for="education">Education</label>
+                <select id="education" name="education" required>
+                    <option value="1">1 - Below College</option>
+                    <option value="2">2 - College</option>
+                    <option value="3">3 - Bachelor</option>
+                    <option value="4">4 - Master</option>
+                    <option value="5">5 - Doctor</option>
+                </select>
+
+                <label for="distanceFromHome">Distance From Home (in km)</label>
+                <input type="number" id="distanceFromHome" name="distanceFromHome" required>
+
+                <button type="submit">Predict Retention</button>
+            </form>
+
+            <!-- Result Section -->
+            <div id="predictionResult"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Employee Retention Prediction. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('employeeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = {
+                employeeID: document.getElementById('employeeID').value,
+                employeeAge: document.getElementById('employeeAge').value,
+                jobRole: document.getElementById('jobRole').value,
+                gender: document.getElementById('gender').value,
+                maritalStatus: document.getElementById('maritalStatus').value,
+                department: document.getElementById('department').value,
+                yearsAtCompany: document.getElementById('yearsAtCompany').value,
+                yearsWithCurrManager: document.getElementById('yearsWithCurrManager').value,
+                yearsSinceLastPromotion: document.getElementById('yearsSinceLastPromotion').value,
+                yearsInCurrentRole: document.getElementById('yearsInCurrentRole').value,
+                workLifeBalance: document.getElementById('workLifeBalance').value,
+                trainingTimesLastYear: document.getElementById('trainingTimesLastYear').value,
+                jobSatisfaction: document.getElementById('jobSatisfaction').value,
+                education: document.getElementById('education').value,
+                distanceFromHome: document.getElementById('distanceFromHome').value
+            };
+
+            // Send formData to the server (AI model) for prediction
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show prediction result in the #predictionResult div
+                const resultDiv = document.getElementById('predictionResult');
+                resultDiv.textContent = `Prediction: ${data.prediction}`;
+                resultDiv.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
