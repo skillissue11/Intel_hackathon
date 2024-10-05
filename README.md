@@ -13,12 +13,10 @@ The **Employee Attrition Prediction Model** aims to predict employee attrition u
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Model Training](#model-training)
-- [Model Prediction](#model-prediction)
-- [Dataset](#dataset)
-- [Results](#results)
-- [License](#license)
+- [Intel Optimizations with Scikit-learn](#usage)
+- [Intel Optimizations with Transformers (T5 Model)](#model-training)
+- [Conclusion](#model-prediction)
+
 
 ## Features
 ### Job Description Skill Extractor
