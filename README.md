@@ -75,3 +75,4 @@ In this project, we leverage Intel's oneAPI and scikit-learn optimizations to en
 Using the Intel® Extension for Scikit-learn, we speed up computations where applicable, especially when working with large datasets, without needing to modify the code for the transformer itself. The integration with oneAPI provides a seamless acceleration of the machine learning workflow, making the model more suitable for resource-intensive environments.
 
 By utilizing these optimizations, we achieve enhanced performance without changing the core functionality of the T5 transformer.
+![WhatsApp Image 2024-10-05 at 09 40 48_465054ca](https://github.com/user-attachments/assets/e4fcd316-3586-4022-bf48-1a62a668eb2c)
