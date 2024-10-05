@@ -53,6 +53,7 @@ The website extracts required skills from job titles and descriptions.
 
 ![WhatsApp Image 2024-10-05 at 08 18 54_84a480e1](https://github.com/user-attachments/assets/bd868db9-088c-46b7-b09e-2318f2c1166b)
 ![WhatsApp Image 2024-10-05 at 08 19 07_d55f74ca](https://github.com/user-attachments/assets/24b55242-75a1-4d3b-b954-f743d434408f)
+
 ![WhatsApp Image 2024-10-05 at 08 20 12_591b9aae](https://github.com/user-attachments/assets/54800f45-4a47-43e7-807c-126ed91e20e5)
 ![WhatsApp Image 2024-10-05 at 08 20 34_fd75a5ab](https://github.com/user-attachments/assets/a20288c8-2afa-42f5-a5dc-142edde195e6)
 ![WhatsApp Image 2024-10-05 at 08 20 49_df934a9f](https://github.com/user-attachments/assets/73f949a5-2deb-4c22-9aab-5d12a5c766d0)
